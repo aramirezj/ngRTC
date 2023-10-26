@@ -1,0 +1,14 @@
+<h1>Hello world</h1>
+
+<p>Websocket open: {{websocketopen}}</p>
+<input [formControl]="controlId" placeholder="UserId" type="text">
+
+<button (click)="openWebSocket()">Open websocket</button>
+<p>RTC open: {{RTCopen}}</p>
+<button (click)="openRTC()">Send offer for the RTC</button>
+
+<p>Received from other client: </p>
+<hr>
+<input [formControl]="controlTargetId" placeholder="To who" type="text">
+<input [formControl]="control" placeholder="Send to other client" type="text">
+<button (click)="sendMessage()">Send</button>
