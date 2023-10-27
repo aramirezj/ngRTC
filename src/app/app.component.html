@@ -1,14 +1,6 @@
 <h1>Hello world</h1>
+<p>Active RTC mode: {{mode}}</p>
+<button (click)="mode='client'">Client</button><button (click)="mode='server'">Server</button>
 
-<p>Websocket open: {{websocketopen}}</p>
-<input [formControl]="controlId" placeholder="UserId" type="text">
-
-<button (click)="openWebSocket()">Open websocket</button>
-<p>RTC open: {{RTCopen}}</p>
-<button (click)="openRTC()">Send offer for the RTC</button>
-
-<p>Received from other client: </p>
-<hr>
-<input [formControl]="controlTargetId" placeholder="To who" type="text">
-<input [formControl]="control" placeholder="Send to other client" type="text">
-<button (click)="sendMessage()">Send</button>
+<app-client-rtc *ngIf="mode==='client'"></app-client-rtc>
+<app-server-rtc *ngIf="mode==='server'"></app-server-rtc>
