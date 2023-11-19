@@ -36,6 +36,7 @@ export class WebClientRTCService {
     this.socket.on('offer', async (data) => {
       console.log('Offer received');
       console.log(data);
+      this.remoteUserId = data.userId;
       await this.localPeerConnection.setRemoteDescription(new RTCSessionDescription(data.offer));
       const answer = await this.localPeerConnection.createAnswer();
       await this.localPeerConnection.setLocalDescription(answer);
